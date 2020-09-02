@@ -6,8 +6,11 @@ import datetime as dt
 
 #begin scrape
 def scrape():
-    #Initiate webdriver
 
+    #executable path 
+    executable_path={'executable_path': '/Users/annel/Downloads/chromedriver/chromedriver.exe'}
+    #browser
+    browser= Browser('chrome', **executable_path)
     #run all scraping funcs and store results in dict.
 
 #stop webdriver and return data
