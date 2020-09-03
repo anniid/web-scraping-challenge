@@ -8,8 +8,7 @@ import datetime as dt
 def scrape():
 
     #executable path & browser
-     browser = Browser("chrome", executable_path="chromedriver", headless=True)
-
+    browser = Browser("chrome", executable_path="chromedriver", headless=True)
     news_title, news_paragraph = mars_news(browser)
 
     browser= Browser('chrome', **executable_path)
@@ -116,6 +115,5 @@ def scrape_hemi(html_text):
 
     return hemisphere
 
-if __name__ == "__main__"
-
+if __name__ == "__main__":
     print(scrape())
