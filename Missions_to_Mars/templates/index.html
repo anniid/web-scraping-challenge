@@ -14,25 +14,29 @@
         <div class="container">
             <div class="jumbotron text-center">
                 <h1>Mission to Mars</h1>
-                <p><a class="btn btn-lg" href="/scrape" role="button">Scrape Now</a>
-                </div>
+                <p><a class="btn btn-warning btn-lg" href="/scrape" role="button">Scrape Now</a>
+            </div>
 
             <!--Mars News-->
-            <!--row-->
-                <!--column-->
-                    <!--media-->
-                        <!--content-->
-                        <!---->
-                    <!---->
-                <!---->
-            <!---->
+            <div class="row" id="mars-news">
+                <div class="col-md-12">
+                    <div class="media">
+                        <div class="media-body">
+                            <h1>Latest Mars News</h1>
+                            <h3 class="media-heading">{{mars.news_title}}</h3>
+                            <p>{{mars.news_paragraph}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
             <!--featured image, facts table-->
-            <!--row for featured image-->
-                <!--COLUMN-->
-                    <!--header-->
-                    <!--img-->
-                <!---->
+            <div class="row" id="mars-featured-img">
+                <div class="col=md-8">
+                    <h1>Featured Image</h1>
+                    <img src="{{mars.featured_image | default('https://image.freepik.com/free-vector/error-404-found-glitch-effect_8024-4.jpg', true)}}"
+                    class="img-responsive">
+                </div>
 
                 <!-- column for mars facts table-->
                     <!--row for mars facts table-->
@@ -40,7 +44,7 @@
                         <!--content-->
                     <!---->
                 <!---->
-            <!---->
+            </div>
             <!--mars hemis-->
             <!--row for mars hemis-->
                 <!--page-header-->
