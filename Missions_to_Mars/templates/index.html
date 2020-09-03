@@ -35,31 +35,31 @@
                 <div class="col=md-8">
                     <h1>Featured Image</h1>
                     <img src="{{mars.featured_image | default('https://image.freepik.com/free-vector/error-404-found-glitch-effect_8024-4.jpg', true)}}"
-                    class="img-responsive">
+                    class="img-responsive"/>
                 </div>
 
-                <!-- column for mars facts table-->
-                    <!--row for mars facts table-->
-                        <!--header-->
-                        <!--content-->
-                    <!---->
-                <!---->
+                <div class="col-md-4">
+                    <div class="row" id="mars-facts">
+                        <h4>Mars Facts</h4>
+                        {{mars.facts}}
+                    </div>
+                </div>
             </div>
             <!--mars hemis-->
-            <!--row for mars hemis-->
-                <!--page-header-->
-                    <!--header, text-center-->   
-                <!----> 
+            <div class="row" id="mars-hemi">
+                <div class="page-header">
+                    <h1 class= "text-center">Mars Hemispheres</h1>   
+                </div> 
 
                 {% for hemisphere in mars.hemispheres %}
-                <!--column-->
-                    <!--thumbnail-->
-                        <!--img-->
-                        <!--caption-->
-                            <!--hemi title-->
-                        <!---->
-                    <!---->
-                <!---->
+                <div class="col-md-4">
+                    <div class="thumbnail">
+                        <img src="{{hemisphere.img_url | default('https://image.freepik.com/free-vector/error-404-found-glitch-effect_8024-4.jpg', true)}}">
+                        <div class="caption">
+                            <h4>{{hemisphere.title}}</h4>
+                        </div>
+                    </div>
+                </div>
                 {% endfor %}
             </div>
         </div>
