@@ -5,13 +5,12 @@ from bs4 import BeautifulSoup as soup
 import datetime as dt
 
 #begin scrape
-def scrape():
+def scrape_all():
 
     #executable path & browser
-    browser = Browser("chrome", executable_path="chromedriver", headless=True)
+    browser = Browser("chrome", executable_path="/Users/annel/Downloads/chromedriver/chromedriver.exe", headless=True)
     news_title, news_paragraph = mars_news(browser)
-
-    browser= Browser('chrome', **executable_path)
+    mars_facts=facts_table()
     #run all scraping funcs and store results in dict.
     data={
         "news_title":news_title,
@@ -24,6 +23,7 @@ def scrape():
     #stop webdriver and return data
     browser.quit()
     return data
+
 def mars_news(browser):
     #scrape mars news from https://mars.nasa.gov/news/
     news_url='https://mars.nasa.gov/news/'
@@ -34,7 +34,7 @@ def mars_news(browser):
     news=soup(html,'html.parser')
     #handle errors (try, except)
     try:
-        slide_elem=news_soup.select_one('li.slide')
+        slide_elem=news.select_one('li.slide')
         title=slide_elem.find("div", class_="content_title").get_text()
         teaser=soup(browser.html,'html.parser').select_one('li.slide').find("div", class_='article_teaser_body').get_text()
     except AttributeError:
@@ -59,7 +59,7 @@ def featured_image(browser):
         return None
 
     #create final url
-    final_url=f'https://www.jpl.nasa.gov{img_url_official}'
+    final_url=f'https://www.jpl.nasa.gov{img_url}'
 
     return final_url
 
@@ -96,8 +96,8 @@ def hemispheres(browser):
 
 def scrape_hemi(html_text):
     #parse html text with soup
-    hemi_soup=soup(html_text, "html.parser")
-
+    browser = Browser("chrome", executable_path="/Users/annel/Downloads/chromedriver/chromedriver.exe", headless=True)
+    
     #error handling (try, except)
     try:
         anchor = browser.links.find_by_text('Sample').first
@@ -116,4 +116,4 @@ def scrape_hemi(html_text):
     return hemisphere
 
 if __name__ == "__main__":
-    print(scrape())
+    print(scrape_all())
